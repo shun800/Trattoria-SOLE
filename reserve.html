@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ご予約｜Trattoria SOLE 代々木上原イタリアン</title>
+  <meta name="description" content="Trattoria SOLEのご予約ページ。オンライン予約フォームまたはお電話にてご予約を承ります。">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== ヘッダー ===== -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        Trattoria SOLE
+        <span class="logo-sub">トラットリア ソーレ</span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="wine.html">Wine</a>
+        <a href="reserve.html" class="active">Reserve</a>
+      </nav>
+      <a href="reserve.html" class="reserve-btn-header">ご予約はこちら</a>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <a href="reserve.html" class="reserve-btn-fixed">ご予約はこちら</a>
+
+  <!-- ===== ページヒーロー ===== -->
+  <section class="menu-hero">
+    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=80" alt="レストラン内装">
+    <div class="menu-hero-content">
+      <h1>Reserve</h1>
+      <p>ご予約</p>
+    </div>
+  </section>
+
+  <!-- ===== 予約フォーム ===== -->
+  <section class="section section-white form-section" id="reserve-form">
+    <div class="container">
+      <p class="section-title fade-in">Reservation</p>
+      <h2 class="section-title-jp fade-in">オンライン予約</h2>
+
+      <form id="reserveForm" class="fade-in" novalidate>
+
+        <!-- ご希望日 -->
+        <div class="form-group">
+          <label for="date">ご希望日<span class="required">※必須</span></label>
+          <input type="date" id="date" name="date">
+          <p class="form-error">ご希望日は必須項目です</p>
+        </div>
+
+        <!-- ご希望時間 -->
+        <div class="form-group">
+          <label for="time">ご希望時間<span class="required">※必須</span></label>
+          <select id="time" name="time">
+            <option value="">選択してください</option>
+            <optgroup label="ランチ（11:30〜14:00）">
+              <option value="11:30">11:30</option>
+              <option value="12:00">12:00</option>
+              <option value="12:30">12:30</option>
+              <option value="13:00">13:00</option>
+              <option value="13:30">13:30</option>
+            </optgroup>
+            <optgroup label="ディナー（17:30〜22:00）">
+              <option value="17:30">17:30</option>
+              <option value="18:00">18:00</option>
+              <option value="18:30">18:30</option>
+              <option value="19:00">19:00</option>
+              <option value="19:30">19:30</option>
+              <option value="20:00">20:00</option>
+              <option value="20:30">20:30</option>
+              <option value="21:00">21:00</option>
+            </optgroup>
+          </select>
+          <p class="form-error">ご希望時間を選択してください</p>
+        </div>
+
+        <!-- 人数 -->
+        <div class="form-group">
+          <label for="guests">人数<span class="required">※必須</span></label>
+          <select id="guests" name="guests">
+            <option value="">選択してください</option>
+            <option value="1">1名</option>
+            <option value="2">2名</option>
+            <option value="3">3名</option>
+            <option value="4">4名</option>
+            <option value="5">5名</option>
+            <option value="6">6名</option>
+            <option value="7">7名</option>
+            <option value="8">8名</option>
+          </select>
+          <p class="form-error">人数を選択してください</p>
+        </div>
+
+        <!-- お名前 -->
+        <div class="form-group">
+          <label for="name">お名前<span class="required">※必須</span></label>
+          <input type="text" id="name" name="name" placeholder="山田 太郎">
+          <p class="form-error">お名前は必須項目です</p>
+        </div>
+
+        <!-- 電話番号 -->
+        <div class="form-group">
+          <label for="phone">お電話番号<span class="required">※必須</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="090-1234-5678">
+          <p class="form-error">お電話番号は必須項目です</p>
+        </div>
+
+        <!-- メールアドレス -->
+        <div class="form-group">
+          <label for="email">メールアドレス<span class="required">※必須</span></label>
+          <input type="email" id="email" name="email" placeholder="example@email.com">
+          <p class="form-error">メールアドレスは必須項目です</p>
+        </div>
+
+        <!-- コース選択 -->
+        <div class="form-group">
+          <label for="course">コース選択<span class="required">※必須</span></label>
+          <select id="course" name="course">
+            <option value="">選択してください</option>
+            <option value="alacarte">アラカルト</option>
+            <option value="lunch">ランチコース（¥3,800）</option>
+            <option value="dinner">ディナーコース（¥8,500）</option>
+            <option value="anniversary">記念日コース（¥12,000）</option>
+          </select>
+          <p class="form-error">コースを選択してください</p>
+        </div>
+
+        <!-- アレルギー・ご要望 -->
+        <div class="form-group">
+          <label for="request">アレルギー・ご要望</label>
+          <textarea id="request" name="request" placeholder="食物アレルギーやご要望がございましたらご記入ください"></textarea>
+        </div>
+
+        <!-- 送信ボタン -->
+        <button type="submit" class="submit-btn">予約を送信する</button>
+      </form>
+
+      <!-- 予約情報 -->
+      <div class="reserve-info fade-in">
+        <div class="reserve-info-box">
+          <h4>📞 お電話でのご予約</h4>
+          <p class="tel">03-XXXX-XXXX</p>
+          <p>受付時間：11:00〜21:00（月曜定休）</p>
+        </div>
+
+        <div class="reserve-info-box">
+          <h4>キャンセルポリシー</h4>
+          <p>
+            ・前日までのキャンセル：無料<br>
+            ・当日キャンセル：コース料金の50%<br>
+            ・ご連絡なしの不来店：コース料金の100%<br><br>
+            ※やむを得ない場合はお早めにご連絡ください。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 店舗情報・アクセス ===== -->
+  <section class="section section-beige" id="access">
+    <div class="container">
+      <p class="section-title fade-in">Access</p>
+      <h2 class="section-title-jp fade-in">店舗情報・アクセス</h2>
+
+      <!-- 店舗情報リスト -->
+      <div class="access-list fade-in">
+        <div class="access-item">
+          <dt>所在地</dt>
+          <dd>〒151-0064 東京都渋谷区上原1丁目 XX-XX</dd>
+        </div>
+        <div class="access-item">
+          <dt>アクセス</dt>
+          <dd>小田急線・千代田線 代々木上原駅 北口 徒歩3分</dd>
+        </div>
+        <div class="access-item">
+          <dt>営業時間</dt>
+          <dd>ランチ 11:30 - 14:00（L.O. 13:30）<br>ディナー 17:30 - 22:00（L.O. 21:00）</dd>
+        </div>
+        <div class="access-item">
+          <dt>定休日</dt>
+          <dd>毎週月曜日（祝日の場合は翌火曜日）</dd>
+        </div>
+        <div class="access-item">
+          <dt>お電話</dt>
+          <dd>03-XXXX-XXXX</dd>
+        </div>
+        <div class="access-item">
+          <dt>お席</dt>
+          <dd>28席（カウンター6席・テーブル22席）／ 半個室1部屋（4〜6名様）</dd>
+        </div>
+      </div>
+
+      <!-- Googleマップ埋め込み -->
+      <div class="map-wrap fade-in">
+        <iframe src="https://maps.google.com/maps?q=%E4%BB%A3%E3%80%85%E6%9C%A8%E4%B8%8A%E5%8E%9F%E9%A7%85&t=m&z=16&output=embed&iwloc=near" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" title="代々木上原駅周辺の地図"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== フッター ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Trattoria SOLE</h4>
+        <p>〒151-0064<br>東京都渋谷区上原1丁目 XX-XX<br>代々木上原駅 徒歩3分</p>
+      </div>
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <p>ランチ 11:30 - 14:00（L.O. 13:30）<br>ディナー 17:30 - 22:00（L.O. 21:00）<br>定休日：月曜日</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>TEL: 03-XXXX-XXXX</p>
+        <div class="footer-sns">
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">LINE</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Trattoria SOLE. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

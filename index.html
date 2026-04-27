@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trattoria SOLE｜代々木上原のイタリアンレストラン</title>
+  <meta name="description" content="代々木上原で15年。太陽のように温かい、本場イタリアの味をお届けするトラットリア ソーレ。パスタ・ワイン専門のイタリアンレストラン。">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== ヘッダー ===== -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        Trattoria SOLE
+        <span class="logo-sub">トラットリア ソーレ</span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="wine.html">Wine</a>
+        <a href="reserve.html">Reserve</a>
+      </nav>
+      <!-- PC用 予約ボタン -->
+      <a href="reserve.html" class="reserve-btn-header">ご予約はこちら</a>
+      <!-- ハンバーガーメニュー -->
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- スマホ固定予約ボタン -->
+  <a href="reserve.html" class="reserve-btn-fixed">ご予約はこちら</a>
+
+  <!-- ===== ヒーローセクション（動画背景） ===== -->
+  <section class="hero" id="hero">
+    <video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=80">
+      <source src="https://videos.pexels.com/video-files/3195394/3195394-uhd_2560_1440_25fps.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-catch">太陽のように温かい、<br>本場の味を。</h1>
+      <div class="hero-line"></div>
+      <a href="reserve.html" class="reserve-btn">ご予約はこちら</a>
+    </div>
+    <div class="hero-scroll">Scroll ↓</div>
+  </section>
+
+  <!-- ===== ブランドスローガン ===== -->
+  <section class="section brand-section" id="brand">
+    <div class="brand-bg-text">La Cucina Italiana</div>
+    <div class="container brand-content">
+      <p class="brand-slogan fade-in">太陽のように温かい、本場の味。</p>
+      <div class="brand-line"></div>
+      <p class="brand-sub fade-in">
+        代々木上原の静かな路地に佇むTrattoria SOLE。<br>
+        イタリアで修行を重ねた松本シェフが、<br>
+        本場の食材と技法で紡ぐ料理は、<br>
+        訪れるたびに新しい感動をお届けします。
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== シェフのこだわり ===== -->
+  <section class="section section-beige" id="chef">
+    <div class="container">
+      <p class="section-title fade-in">Chef's Story</p>
+      <h2 class="section-title-jp fade-in">シェフのこだわり</h2>
+      <div class="chef-section fade-in">
+        <div class="chef-img-wrap">
+          <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=80" alt="シェフが調理するシーン">
+        </div>
+        <div class="chef-text">
+          <h3>松本 隆志 ─ 15年間、変わらない情熱</h3>
+          <p>
+            20代でイタリア・トスカーナへ渡り、地元のトラットリアで5年間修行を重ねました。<br>
+            現地のマンマから学んだのは、素材への敬意と、食卓を囲む喜び。<br>
+            帰国後、代々木上原にこの店を構え、イタリアで出会った「太陽のような温かさ」を<br>
+            毎日の一皿一皿に込めています。旬の食材を活かした料理で、特別なひとときをお届けします。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 秋のおすすめ ===== -->
+  <section class="section section-white" id="seasonal">
+    <div class="container">
+      <p class="section-title fade-in">Seasonal Menu</p>
+      <h2 class="section-title-jp fade-in">秋のおすすめ</h2>
+      <!-- 1品目：写真左・テキスト右 -->
+      <div class="seasonal-row fade-in">
+        <div class="seasonal-img">
+          <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=600&q=80" alt="秋トリュフとポルチーニのリゾット">
+        </div>
+        <div class="seasonal-text">
+          <span class="seasonal-it">Risotto al Tartufo e Porcini</span>
+          <div class="seasonal-line"></div>
+          <h4>秋トリュフとポルチーニのリゾット</h4>
+          <p>秋の森の恵み、トリュフとポルチーニを贅沢に使ったリゾット。芳醇な香りがふわりと広がり、一口ごとに深い旨みが楽しめます。この季節だけの、特別な一皿です。</p>
+        </div>
+      </div>
+
+      <!-- 2品目：テキスト左・写真右（reverse） -->
+      <div class="seasonal-row seasonal-row-reverse fade-in">
+        <div class="seasonal-img">
+          <img src="autumn_pasta_ragu.jpg.jpg" alt="栗と鴨のラグーパスタ">
+        </div>
+        <div class="seasonal-text">
+          <span class="seasonal-it">Pappardelle al Ragù di Anatra e Castagne</span>
+          <div class="seasonal-line"></div>
+          <h4>栗と鴨のラグーパスタ</h4>
+          <p>丁寧に煮込んだ鴨のラグーに、甘みのある秋の栗を合わせた贅沢なパスタ。自家製の手打ち麺がソースをしっかりと受け止め、豊かなコクと旨みが口いっぱいに広がります。</p>
+        </div>
+      </div>
+
+      <!-- 3品目：写真左・テキスト右 -->
+      <div class="seasonal-row fade-in">
+        <div class="seasonal-img">
+          <img src="https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?w=600&q=80" alt="洋梨とゴルゴンゾーラのブルスケッタ">
+        </div>
+        <div class="seasonal-text">
+          <span class="seasonal-it">Bruschetta con Pere e Gorgonzola</span>
+          <div class="seasonal-line"></div>
+          <h4>洋梨とゴルゴンゾーラのブルスケッタ</h4>
+          <p>熟した洋梨の甘さと、ゴルゴンゾーラの塩気とコクが絶妙に溶け合うブルスケッタ。香ばしく焼いたパンとの食感のコントラストが楽しく、ワインとの相性も抜群です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== コース紹介 ===== -->
+  <section class="section course-section" id="course">
+    <div class="course-overlay"></div>
+    <div class="container course-content">
+      <p class="section-title fade-in">Course</p>
+      <h2 class="section-title-jp fade-in">コースのご案内</h2>
+      <div class="course-grid">
+        <div class="course-card fade-in">
+          <h4>ランチコース</h4>
+          <div class="price">¥3,800〜</div>
+          <p>前菜＋パスタ＋ドルチェ＋ドリンク<br>平日のちょっと特別なランチに</p>
+        </div>
+        <div class="course-card fade-in">
+          <h4>ディナーコース</h4>
+          <div class="price">¥8,500〜</div>
+          <p>前菜2品＋パスタ＋メイン＋ドルチェ<br>大切な方との夜に</p>
+        </div>
+        <div class="course-card fade-in">
+          <h4>記念日コース</h4>
+          <div class="price">¥12,000〜</div>
+          <p>乾杯スパークリング付き<br>メッセージプレートでお祝いを</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== シーン別利用提案 ===== -->
+  <section class="section section-beige" id="occasion">
+    <div class="container">
+      <p class="section-title fade-in">Special Occasion</p>
+      <h2 class="section-title-jp fade-in">特別な日に、SOLEを</h2>
+      <div class="occasion-grid">
+        <div class="occasion-card fade-in">
+          <div class="occasion-img">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="記念日ディナー">
+          </div>
+          <div class="occasion-text">
+            <p class="occasion-en">Anniversary</p>
+            <h4>記念日</h4>
+            <p>大切な記念日を、忘れられない夜に。<br>乾杯のスパークリングと特製メッセージプレートで、<br>お二人だけの特別なひとときを演出します。</p>
+            <a href="reserve.html" class="occasion-link">詳しく見る →</a>
+          </div>
+        </div>
+        <div class="occasion-card fade-in">
+          <div class="occasion-img">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="デートディナー">
+          </div>
+          <div class="occasion-text">
+            <p class="occasion-en">Date Night</p>
+            <h4>デート</h4>
+            <p>二人の距離が縮まる、大人の夜。<br>ソムリエが選ぶワインと、<br>季節の食材を活かしたコース料理で特別なひとときを。</p>
+            <a href="reserve.html" class="occasion-link">詳しく見る →</a>
+          </div>
+        </div>
+        <div class="occasion-card fade-in">
+          <div class="occasion-img">
+            <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb51f3a?w=600&q=80" alt="接待ディナー">
+          </div>
+          <div class="occasion-text">
+            <p class="occasion-en">Business Dinner</p>
+            <h4>接待</h4>
+            <p>信頼を深める、一流のおもてなし。<br>プライベートな空間と洗練されたサービスで、<br>大切なお客様をお迎えします。</p>
+            <a href="reserve.html" class="occasion-link">詳しく見る →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== お客様の声 ===== -->
+  <section class="section section-white" id="testimonial">
+    <div class="container">
+      <p class="section-title fade-in">Voice</p>
+      <h2 class="section-title-jp fade-in">お客様の声</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial-card fade-in">
+          <p>記念日に利用しました。シェフのこだわりが伝わる料理と、ソムリエさんのワイン提案が最高でした。また必ず来ます。</p>
+          <div class="author">株式会社〇〇 / 田中様</div>
+        </div>
+        <div class="testimonial-card fade-in">
+          <p>代々木上原に15年通っています。どの料理も丁寧で、まるでイタリアにいるような気分になれます。</p>
+          <div class="author">フリーランス / 佐藤様</div>
+        </div>
+        <div class="testimonial-card fade-in">
+          <p>接待で利用しましたが、空間の雰囲気と料理のクオリティに取引先も大喜びでした。</p>
+          <div class="author">〇〇株式会社 / 鈴木様</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Instagram ===== -->
+  <section class="section section-beige" id="instagram">
+    <div class="container">
+      <p class="section-title fade-in">Instagram</p>
+      <h2 class="section-title-jp fade-in">@trattoria_sole</h2>
+      <div class="instagram-placeholder fade-in">
+        <p>📷 Instagramの投稿がここに表示されます<br>@trattoria_sole をフォローしてください</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== フッター ===== -->
+  <footer class="footer" id="footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Trattoria SOLE</h4>
+        <p>
+          〒151-0064<br>
+          東京都渋谷区上原1丁目 XX-XX<br>
+          代々木上原駅 徒歩3分
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <p>
+          ランチ 11:30 - 14:00（L.O. 13:30）<br>
+          ディナー 17:30 - 22:00（L.O. 21:00）<br>
+          定休日：月曜日
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>TEL: 03-XXXX-XXXX</p>
+        <div class="footer-sns">
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">LINE</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Trattoria SOLE. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

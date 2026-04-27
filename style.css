@@ -1,0 +1,1296 @@
+/* ==========================================
+   Trattoria SOLE - メインスタイルシート
+   配色: ワインレッド, ベージュ, ゴールド, ダークブラウン
+   ========================================== */
+
+/* --- Google Fonts 読み込み --- */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Noto+Serif+JP:wght@300;400;500;600;700&display=swap');
+
+/* --- CSS カスタムプロパティ（変数） --- */
+:root {
+  --wine-red: #722F37;
+  --beige: #F5E6D3;
+  --gold: #C9A96E;
+  --dark-brown: #3E2723;
+  --white: #FFFFFF;
+  --black: #1a1a1a;
+  --font-jp: 'Noto Serif JP', serif;
+  --font-it: 'Cormorant Garamond', serif;
+  --section-padding: 100px 0;
+  --transition: 0.3s ease;
+}
+
+/* --- リセット＆ベース --- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-jp);
+  color: var(--dark-brown);
+  background-color: var(--white);
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul { list-style: none; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- ヘッダー --- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: transparent;
+  transition: background 0.4s ease;
+}
+
+/* スクロール時に背景を表示 */
+.header.scrolled {
+  background: rgba(62, 39, 35, 0.95);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ロゴ */
+.logo {
+  font-family: var(--font-it);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+.logo-sub {
+  font-family: var(--font-jp);
+  font-size: 0.65rem;
+  color: var(--gold);
+  letter-spacing: 2px;
+  opacity: 0.8;
+  display: block;
+  margin-top: 2px;
+}
+
+/* ナビゲーション */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  padding: 14px 0 16px;
+  width: 100%;
+}
+
+.nav a {
+  font-family: var(--font-it);
+  font-size: 0.95rem;
+  color: var(--gold);
+  letter-spacing: 1.5px;
+  position: relative;
+  padding-bottom: 3px;
+  transition: color var(--transition);
+}
+
+/* ホバー時のゴールド下線アニメーション */
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.4s ease;
+}
+
+.nav a:hover::after,
+.nav a.active::after {
+  width: 100%;
+}
+
+/* 予約ボタン（PC：ヘッダー右上固定） */
+.reserve-btn-header {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--gold);
+  color: var(--dark-brown);
+  font-family: var(--font-jp);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 10px 24px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background var(--transition), transform 0.2s;
+}
+
+.reserve-btn-header:hover {
+  background: #b8944f;
+  transform: translateY(-50%) scale(1.03);
+}
+
+/* スマホ固定予約ボタン */
+.reserve-btn-fixed {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--gold);
+  color: var(--dark-brown);
+  font-family: var(--font-jp);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 16px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  z-index: 999;
+  letter-spacing: 2px;
+}
+
+/* ハンバーガーメニュー */
+.hamburger {
+  display: none;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 28px;
+  height: 20px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--gold);
+  transition: var(--transition);
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* --- ヒーローセクション --- */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 動画背景 */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 暗めオーバーレイ（ダークブラウン） */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(62, 39, 35, 0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--white);
+  padding: 0 20px;
+}
+
+.hero-catch {
+  font-family: var(--font-jp);
+  font-size: 2.4rem;
+  font-weight: 400;
+  letter-spacing: 4px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+/* ゴールドの区切り線 */
+.hero-line {
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto 32px;
+}
+
+.hero .reserve-btn {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark-brown);
+  font-family: var(--font-jp);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 14px 40px;
+  letter-spacing: 2px;
+  transition: background var(--transition), transform 0.2s;
+}
+
+.hero .reserve-btn:hover {
+  background: #b8944f;
+  transform: scale(1.03);
+}
+
+/* Scroll ↓ インジケーター */
+.hero-scroll {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  z-index: 2;
+  font-family: var(--font-it);
+  font-size: 0.8rem;
+  color: var(--gold);
+  letter-spacing: 2px;
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* --- ブランドスローガン --- */
+.brand-section {
+  position: relative;
+  background: var(--wine-red);
+  overflow: hidden;
+  text-align: center;
+}
+
+.brand-bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-it);
+  font-size: 7rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.08);
+  white-space: nowrap;
+  letter-spacing: 8px;
+  pointer-events: none;
+}
+
+.brand-content {
+  position: relative;
+  z-index: 1;
+}
+
+.brand-slogan {
+  font-family: var(--font-jp);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--white);
+  letter-spacing: 4px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.brand-line {
+  width: 50px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto 24px;
+}
+
+.brand-sub {
+  font-family: var(--font-jp);
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--white);
+  line-height: 2.2;
+  opacity: 0.85;
+}
+
+/* --- シーン別利用提案 --- */
+.occasion-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.occasion-card {
+  background: var(--white);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.occasion-card:hover {
+  transform: translateY(-4px);
+}
+
+.occasion-img {
+  overflow: hidden;
+  height: 240px;
+}
+
+.occasion-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.occasion-card:hover .occasion-img img {
+  transform: scale(1.08);
+}
+
+.occasion-text {
+  padding: 24px 20px 28px;
+}
+
+.occasion-en {
+  font-family: var(--font-it);
+  font-size: 0.8rem;
+  color: var(--gold);
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+}
+
+.occasion-text h4 {
+  font-family: var(--font-jp);
+  font-size: 1.1rem;
+  color: var(--dark-brown);
+  margin-bottom: 12px;
+}
+
+.occasion-text p {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: var(--dark-brown);
+  opacity: 0.75;
+  margin-bottom: 16px;
+}
+
+.occasion-link {
+  font-family: var(--font-it);
+  font-size: 0.85rem;
+  color: var(--gold);
+  letter-spacing: 1px;
+  transition: opacity var(--transition);
+}
+
+.occasion-link:hover {
+  opacity: 0.6;
+}
+
+/* --- 共通セクションスタイル --- */
+.section {
+  padding: var(--section-padding);
+}
+
+.section-beige {
+  background: var(--beige);
+}
+
+.section-white {
+  background: var(--white);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+/* 英字サブタイトル（小さめ・控えめ） */
+.section-title {
+  font-family: var(--font-it);
+  font-size: 1.1rem;
+  color: var(--wine-red);
+  text-align: center;
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+/* 日本語メインタイトル（大きめ・メイン） */
+.section-title-jp {
+  font-family: var(--font-jp);
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--dark-brown);
+  text-align: center;
+  letter-spacing: 3px;
+  margin-bottom: 50px;
+}
+
+/* --- シェフのこだわり --- */
+.chef-section {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.chef-img-wrap {
+  flex: 0 0 45%;
+  overflow: hidden;
+}
+
+.chef-img-wrap img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+
+.chef-text {
+  flex: 1;
+}
+
+.chef-text h3 {
+  font-family: var(--font-jp);
+  font-size: 1.3rem;
+  color: var(--wine-red);
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.chef-text p {
+  font-size: 0.95rem;
+  line-height: 2;
+  color: var(--dark-brown);
+}
+
+/* --- 季節のおすすめ（段々レイアウト） --- */
+.seasonal-row {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin-bottom: 60px;
+}
+
+.seasonal-row:last-child {
+  margin-bottom: 0;
+}
+
+/* 偶数品目を左右反転 */
+.seasonal-row-reverse {
+  flex-direction: row-reverse;
+}
+
+/* 写真エリア */
+.seasonal-img {
+  flex: 0 0 50%;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.seasonal-img img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.seasonal-row:hover .seasonal-img img {
+  transform: scale(1.04);
+}
+
+/* テキストエリア */
+.seasonal-text {
+  flex: 1;
+}
+
+/* イタリア語名（ゴールド・細字・小さめ） */
+.seasonal-it {
+  display: block;
+  font-family: var(--font-it);
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--gold);
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+/* ゴールドの区切り線 */
+.seasonal-line {
+  width: 30px;
+  height: 1px;
+  background: var(--gold);
+  margin-bottom: 14px;
+}
+
+.seasonal-text h4 {
+  font-family: var(--font-jp);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--dark-brown);
+  margin-bottom: 14px;
+  letter-spacing: 1px;
+}
+
+.seasonal-text p {
+  font-size: 0.9rem;
+  line-height: 2;
+  color: var(--dark-brown);
+  opacity: 0.75;
+}
+
+/* --- コースプレビュー --- */
+.course-section {
+  position: relative;
+  overflow: hidden;
+  background: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=80') center/cover no-repeat;
+}
+
+.course-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(62, 39, 35, 0.5);
+}
+
+.course-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* コースセクション内のタイトルは白系に */
+.course-section .section-title {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.course-section .section-title-jp {
+  color: var(--white);
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.course-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(201, 169, 110, 0.4);
+  padding: 40px 30px;
+  text-align: center;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-6px);
+}
+
+.course-card h4 {
+  font-family: var(--font-jp);
+  font-size: 1.1rem;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.course-card .price {
+  font-family: var(--font-it);
+  font-size: 2rem;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.course-card p {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: var(--white);
+  opacity: 0.9;
+}
+
+/* --- お客様の声 --- */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.testimonial-card {
+  background: var(--beige);
+  padding: 36px 28px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.testimonial-card::before {
+  content: '\201C';
+  font-family: var(--font-it);
+  font-size: 5rem;
+  color: var(--gold);
+  position: absolute;
+  top: -10px;
+  left: 16px;
+  line-height: 1;
+  opacity: 0.6;
+}
+
+.testimonial-card p {
+  font-size: 0.9rem;
+  line-height: 1.9;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-card .author {
+  font-size: 0.8rem;
+  color: var(--wine-red);
+  font-weight: 500;
+  text-align: right;
+}
+
+/* --- Instagram --- */
+.instagram-placeholder {
+  background: var(--beige);
+  border: 2px dashed rgba(201, 169, 110, 0.4);
+  border-radius: 4px;
+  padding: 60px 30px;
+  text-align: center;
+  color: var(--dark-brown);
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+/* --- フッター --- */
+.footer {
+  background: var(--dark-brown);
+  color: var(--beige);
+  padding: 60px 30px 30px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer h4 {
+  font-family: var(--font-it);
+  color: var(--gold);
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.footer p, .footer li {
+  font-size: 0.85rem;
+  line-height: 2;
+  opacity: 0.85;
+}
+
+.footer-sns {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.footer-sns a {
+  color: var(--gold);
+  font-size: 0.85rem;
+  transition: opacity var(--transition);
+}
+
+.footer-sns a:hover { opacity: 0.6; }
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 30px;
+  border-top: 1px solid rgba(201, 169, 110, 0.2);
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+/* ====== メニューページ ====== */
+.menu-hero {
+  position: relative;
+  height: 60vh;
+  min-height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--dark-brown);
+  overflow: hidden;
+}
+
+.menu-hero img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
+}
+
+.menu-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--white);
+}
+
+.menu-hero-content h1 {
+  font-family: var(--font-it);
+  font-size: 2.8rem;
+  letter-spacing: 5px;
+  margin-bottom: 8px;
+}
+
+.menu-hero-content p {
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+/* メニューカテゴリ */
+.menu-category {
+  margin-bottom: 60px;
+}
+
+.menu-category h3 {
+  font-family: var(--font-it);
+  font-size: 1.6rem;
+  color: var(--wine-red);
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.menu-category .cat-jp {
+  font-size: 0.8rem;
+  color: var(--dark-brown);
+  opacity: 0.6;
+  margin-bottom: 24px;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.2);
+}
+
+.menu-item-name {
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+.menu-item-name .it-name {
+  font-family: var(--font-it);
+  font-size: 1rem;
+  margin-right: 8px;
+}
+
+.menu-item-price {
+  font-family: var(--font-it);
+  font-size: 1.1rem;
+  color: var(--gold);
+  font-weight: 600;
+  white-space: nowrap;
+  margin-left: 16px;
+}
+
+/* コース詳細 */
+.course-detail {
+  background: var(--beige);
+  border-radius: 4px;
+  padding: 36px 32px;
+  margin-bottom: 20px;
+}
+
+.course-detail h4 {
+  font-family: var(--font-jp);
+  font-size: 1.1rem;
+  color: var(--wine-red);
+  margin-bottom: 6px;
+}
+
+.course-detail .price {
+  font-family: var(--font-it);
+  font-size: 1.6rem;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.course-detail p {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  opacity: 0.85;
+}
+
+.allergy-note {
+  background: rgba(201, 169, 110, 0.1);
+  border-left: 3px solid var(--gold);
+  padding: 20px 24px;
+  font-size: 0.85rem;
+  line-height: 1.8;
+  margin-top: 40px;
+  border-radius: 0 4px 4px 0;
+}
+
+/* ====== ワインページ ====== */
+.sommelier-section {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.sommelier-img {
+  flex: 0 0 45%;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.sommelier-img img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.sommelier-text {
+  flex: 1;
+}
+
+.sommelier-text blockquote {
+  font-size: 1.05rem;
+  line-height: 2;
+  font-style: italic;
+  color: var(--dark-brown);
+  border-left: 3px solid var(--gold);
+  padding-left: 20px;
+}
+
+.wine-list-section {
+  position: relative;
+}
+
+.wine-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0.08;
+}
+
+.wine-category {
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 1;
+}
+
+.wine-category h3 {
+  font-family: var(--font-it);
+  font-size: 1.4rem;
+  color: var(--wine-red);
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.wine-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+  align-items: baseline;
+}
+
+.wine-item-info .wine-name {
+  font-family: var(--font-it);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--dark-brown);
+}
+
+.wine-item-info .wine-detail {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+.wine-item-price {
+  font-family: var(--font-it);
+  font-size: 0.95rem;
+  color: var(--gold);
+  font-weight: 600;
+  text-align: right;
+}
+
+/* ペアリング */
+.pairing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.pairing-card {
+  background: var(--white);
+  border: 1px solid rgba(201, 169, 110, 0.3);
+  border-radius: 4px;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.pairing-card .pairing-num {
+  font-family: var(--font-it);
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.pairing-card h4 {
+  font-size: 0.95rem;
+  color: var(--wine-red);
+  margin-bottom: 12px;
+}
+
+.pairing-card p {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  opacity: 0.8;
+}
+
+/* ====== 予約ページ ====== */
+.form-section .container {
+  max-width: 700px;
+}
+
+.form-group {
+  margin-bottom: 28px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--dark-brown);
+}
+
+.form-group label .required {
+  color: var(--wine-red);
+  font-size: 0.75rem;
+  margin-left: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 8px;
+  font-family: var(--font-jp);
+  font-size: 0.95rem;
+  color: var(--dark-brown);
+  background: var(--beige);
+  border: none;
+  border-bottom: 2px solid rgba(62, 39, 35, 0.2);
+  border-radius: 0;
+  outline: none;
+  transition: border-color var(--transition);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%233E2723' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-bottom-color: var(--gold);
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-error {
+  color: var(--wine-red);
+  font-size: 0.8rem;
+  margin-top: 6px;
+  display: none;
+}
+
+.form-group.has-error input,
+.form-group.has-error select,
+.form-group.has-error textarea {
+  border-bottom-color: var(--wine-red);
+}
+
+.form-group.has-error .form-error {
+  display: block;
+}
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  background: var(--wine-red);
+  color: var(--white);
+  font-family: var(--font-jp);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 16px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: background var(--transition);
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background: #5e252c;
+}
+
+/* 電話予約・キャンセルポリシー */
+.reserve-info {
+  margin-top: 60px;
+}
+
+.reserve-info-box {
+  background: var(--beige);
+  padding: 30px;
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+
+.reserve-info-box h4 {
+  font-size: 1rem;
+  color: var(--wine-red);
+  margin-bottom: 10px;
+}
+
+.reserve-info-box p {
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+
+.reserve-info-box .tel {
+  font-family: var(--font-it);
+  font-size: 1.8rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* アクセスマップ */
+.map-wrap {
+  margin-top: 40px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.map-wrap iframe {
+  width: 100%;
+  height: 350px;
+  border: none;
+}
+
+.map-placeholder {
+  width: 100%;
+  height: 350px;
+  background: var(--beige);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: var(--dark-brown);
+  opacity: 0.6;
+}
+
+/* --- アクセス情報リスト --- */
+.access-list {
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.access-item {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.3);
+}
+
+.access-item:first-child {
+  border-top: 1px solid rgba(201, 169, 110, 0.3);
+}
+
+.access-item dt {
+  font-family: var(--font-jp);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--dark-brown);
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.access-item dd {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: rgba(62, 39, 35, 0.6);
+  margin: 0;
+}
+
+/* --- スクロールアニメーション --- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ====== レスポンシブ（768px） ====== */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: row;
+    justify-content: center;
+    padding: 14px 20px;
+    position: relative;
+  }
+
+  .logo { font-size: 1.4rem; }
+  .logo-sub { font-size: 0.55rem; }
+
+  .nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--dark-brown);
+    padding: 20px 0 30px;
+    gap: 20px;
+  }
+
+  .nav.open { display: flex; }
+
+  .hamburger { display: flex; }
+
+  .reserve-btn-header { display: none; }
+  .reserve-btn-fixed { display: block; }
+
+  body { padding-bottom: 56px; }
+
+  .hero-catch {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
+
+  .section { padding: 60px 0; }
+
+  .chef-section {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .chef-img-wrap { flex: none; width: 100%; }
+  .chef-img-wrap img { height: 280px; }
+
+  .seasonal-row,
+  .seasonal-row-reverse {
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 50px;
+  }
+
+  .seasonal-img { flex: none; width: 100%; }
+  .seasonal-img img { height: 240px; }
+
+  .course-grid,
+  .testimonial-grid,
+  .pairing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .sommelier-section {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .sommelier-img { flex: none; width: 100%; }
+
+  .menu-hero-content h1 { font-size: 2rem; }
+
+  .section-title { font-size: 1rem; }
+  .section-title-jp { font-size: 1.4rem; }
+
+  .hero-scroll { bottom: 70px; font-size: 0.7rem; }
+
+  .brand-bg-text { font-size: 3rem; }
+  .brand-slogan { font-size: 1.2rem; letter-spacing: 2px; }
+  .brand-sub { font-size: 0.85rem; }
+
+  .occasion-grid { grid-template-columns: 1fr; }
+}
