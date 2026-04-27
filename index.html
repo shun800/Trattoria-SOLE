@@ -37,7 +37,7 @@
   <!-- ===== ヒーローセクション（動画背景） ===== -->
   <section class="hero" id="hero">
     <video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=80">
-      <source src="https://videos.pexels.com/video-files/3209828/3209828-uhd_2560_1440_25fps.mp4" type="video/mp4">
+      <source src="https://videos.pexels.com/video-files/5949889/5949889-uhd_2560_1440_25fps.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
     <div class="hero-content">
@@ -49,48 +49,52 @@
   </section>
 
   <!-- ===== ブランドスローガン ===== -->
-  <section class="section brand-section" id="brand">
-    <div class="brand-bg-text">La Cucina Italiana</div>
-    <div class="container brand-content">
-      <p class="brand-slogan fade-in">太陽のように温かい、本場の味。</p>
-      <div class="brand-line"></div>
-      <p class="brand-sub fade-in">
-        代々木上原の静かな路地に佇むTrattoria SOLE。<br>
-        イタリアで修行を重ねた松本シェフが、<br>
-        本場の食材と技法で紡ぐ料理は、<br>
-        訪れるたびに新しい感動をお届けします。
-      </p>
+  <section class="section brand-section parallax-bg" id="brand">
+    <div class="deco-text">La Cucina Italiana</div>
+    <div class="container brand-inner">
+      <div class="brand-text-area fade-in">
+        <p class="brand-slogan">太陽のように温かい、<br>本場の味。</p>
+        <div class="brand-line"></div>
+        <p class="brand-sub">
+          代々木上原の静かな路地に佇むTrattoria SOLE。<br>
+          イタリアで修行を重ねた松本シェフが、<br>
+          本場の食材と技法で紡ぐ料理は、<br>
+          訪れるたびに新しい感動をお届けします。
+        </p>
+      </div>
+      <div class="brand-photos fade-in">
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80" alt="イタリアン料理" class="photo-main">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&q=80" alt="レストラン店内" class="photo-sub">
+      </div>
     </div>
   </section>
 
   <!-- ===== シェフのこだわり ===== -->
-  <section class="section section-beige" id="chef">
-    <div class="container">
-      <p class="section-title fade-in">Chef's Story</p>
-      <h2 class="section-title-jp fade-in">シェフのこだわり</h2>
-      <div class="chef-section fade-in">
-        <div class="chef-img-wrap">
-          <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=80" alt="シェフが調理するシーン">
-        </div>
-        <div class="chef-text">
-          <h3>松本 隆志 ─ 15年間、変わらない情熱</h3>
-          <p>
-            20代でイタリア・トスカーナへ渡り、地元のトラットリアで5年間修行を重ねました。<br>
-            現地のマンマから学んだのは、素材への敬意と、食卓を囲む喜び。<br>
-            帰国後、代々木上原にこの店を構え、イタリアで出会った「太陽のような温かさ」を<br>
-            毎日の一皿一皿に込めています。旬の食材を活かした料理で、特別なひとときをお届けします。
-          </p>
-        </div>
+  <section class="section chef-section parallax-bg" id="chef" style="background-image:url('https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?w=1600&q=80');">
+    <div class="chef-overlay"></div>
+    <div class="deco-text">Chef's Story</div>
+    <div class="container chef-content">
+      <div class="chef-text-area fade-in">
+        <p class="section-title">Chef's Story</p>
+        <h2 class="section-title-jp">シェフのこだわり</h2>
+        <h3>松本 隆志 ─ 15年間、変わらない情熱</h3>
+        <p>
+          20代でイタリア・トスカーナへ渡り、地元のトラットリアで5年間修行を重ねました。<br>
+          現地のマンマから学んだのは、素材への敬意と、食卓を囲む喜び。<br>
+          帰国後、代々木上原にこの店を構え、イタリアで出会った「太陽のような温かさ」を<br>
+          毎日の一皿一皿に込めています。旬の食材を活かした料理で、特別なひとときをお届けします。
+        </p>
       </div>
     </div>
   </section>
 
   <!-- ===== 秋のおすすめ ===== -->
   <section class="section section-white" id="seasonal">
+    <div class="deco-text deco-text-dark">Seasonal Menu</div>
     <div class="container">
       <p class="section-title fade-in">Seasonal Menu</p>
       <h2 class="section-title-jp fade-in">秋のおすすめ</h2>
-      <!-- 1品目：写真左・テキスト右 -->
+
       <div class="seasonal-row fade-in">
         <div class="seasonal-img">
           <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=600&q=80" alt="秋トリュフとポルチーニのリゾット">
@@ -103,7 +107,6 @@
         </div>
       </div>
 
-      <!-- 2品目：テキスト左・写真右（reverse） -->
       <div class="seasonal-row seasonal-row-reverse fade-in">
         <div class="seasonal-img">
           <img src="autumn_pasta_ragu.jpg.jpg" alt="栗と鴨のラグーパスタ">
@@ -116,7 +119,6 @@
         </div>
       </div>
 
-      <!-- 3品目：写真左・テキスト右 -->
       <div class="seasonal-row fade-in">
         <div class="seasonal-img">
           <img src="https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?w=600&q=80" alt="洋梨とゴルゴンゾーラのブルスケッタ">
@@ -132,7 +134,7 @@
   </section>
 
   <!-- ===== コース紹介 ===== -->
-  <section class="section course-section" id="course">
+  <section class="section course-section parallax-bg" id="course" style="background-image:url('https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=1600&q=80');">
     <div class="course-overlay"></div>
     <div class="container course-content">
       <p class="section-title fade-in">Course</p>
@@ -158,64 +160,74 @@
   </section>
 
   <!-- ===== シーン別利用提案 ===== -->
-  <section class="section section-beige" id="occasion">
+  <section class="section occasion-section" id="occasion">
+    <div class="deco-text">Special Occasion</div>
     <div class="container">
-      <p class="section-title fade-in">Special Occasion</p>
-      <h2 class="section-title-jp fade-in">特別な日に、SOLEを</h2>
-      <div class="occasion-grid">
-        <div class="occasion-card fade-in">
-          <div class="occasion-img">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="記念日ディナー">
-          </div>
-          <div class="occasion-text">
-            <p class="occasion-en">Anniversary</p>
-            <h4>記念日</h4>
-            <p>大切な記念日を、忘れられない夜に。<br>乾杯のスパークリングと特製メッセージプレートで、<br>お二人だけの特別なひとときを演出します。</p>
-            <a href="reserve.html" class="occasion-link">詳しく見る →</a>
-          </div>
+      <p class="section-title fade-in" style="color:rgba(255,255,255,0.5);">Special Occasion</p>
+      <h2 class="section-title-jp fade-in" style="color:#fff;">特別な日に、SOLEを</h2>
+
+      <div class="occasion-row fade-in">
+        <div class="occasion-photo">
+          <img src="https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=800&q=80" alt="記念日ディナー">
         </div>
-        <div class="occasion-card fade-in">
-          <div class="occasion-img">
-            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="デートディナー">
-          </div>
-          <div class="occasion-text">
-            <p class="occasion-en">Date Night</p>
-            <h4>デート</h4>
-            <p>二人の距離が縮まる、大人の夜。<br>ソムリエが選ぶワインと、<br>季節の食材を活かしたコース料理で特別なひとときを。</p>
-            <a href="reserve.html" class="occasion-link">詳しく見る →</a>
-          </div>
+        <div class="occasion-info">
+          <p class="occasion-en">Anniversary</p>
+          <h4>記念日</h4>
+          <p>大切な記念日を、忘れられない夜に。<br>乾杯のスパークリングと特製メッセージプレートで、<br>お二人だけの特別なひとときを演出します。</p>
+          <a href="reserve.html" class="occasion-btn">ご予約はこちら →</a>
         </div>
-        <div class="occasion-card fade-in">
-          <div class="occasion-img">
-            <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb51f3a?w=600&q=80" alt="接待ディナー">
-          </div>
-          <div class="occasion-text">
-            <p class="occasion-en">Business Dinner</p>
-            <h4>接待</h4>
-            <p>信頼を深める、一流のおもてなし。<br>プライベートな空間と洗練されたサービスで、<br>大切なお客様をお迎えします。</p>
-            <a href="reserve.html" class="occasion-link">詳しく見る →</a>
-          </div>
+      </div>
+
+      <div class="occasion-row occasion-row-reverse fade-in">
+        <div class="occasion-photo">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="デートディナー">
+        </div>
+        <div class="occasion-info">
+          <p class="occasion-en">Date Night</p>
+          <h4>デート</h4>
+          <p>二人の距離が縮まる、大人の夜。<br>ソムリエが選ぶワインと、<br>季節の食材を活かしたコース料理で特別なひとときを。</p>
+          <a href="reserve.html" class="occasion-btn">ご予約はこちら →</a>
+        </div>
+      </div>
+
+      <div class="occasion-row fade-in">
+        <div class="occasion-photo">
+          <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80" alt="接待ディナー">
+        </div>
+        <div class="occasion-info">
+          <p class="occasion-en">Business Dinner</p>
+          <h4>接待</h4>
+          <p>信頼を深める、一流のおもてなし。<br>プライベートな空間と洗練されたサービスで、<br>大切なお客様をお迎えします。</p>
+          <a href="reserve.html" class="occasion-btn">ご予約はこちら →</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===== お客様の声 ===== -->
-  <section class="section section-white" id="testimonial">
-    <div class="container">
-      <p class="section-title fade-in">Voice</p>
-      <h2 class="section-title-jp fade-in">お客様の声</h2>
+  <section class="section testimonial-section" id="testimonial" style="background-image:url('https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1600&q=80');">
+    <div class="testimonial-overlay"></div>
+    <div class="deco-text">Voice</div>
+    <div class="container testimonial-content">
+      <p class="section-title fade-in" style="color:rgba(255,255,255,0.6);">Voice</p>
+      <h2 class="section-title-jp fade-in" style="color:#fff;">お客様の声</h2>
       <div class="testimonial-grid">
         <div class="testimonial-card fade-in">
+          <span class="quote-mark">"</span>
           <p>記念日に利用しました。シェフのこだわりが伝わる料理と、ソムリエさんのワイン提案が最高でした。また必ず来ます。</p>
+          <div class="testimonial-line"></div>
           <div class="author">株式会社〇〇 / 田中様</div>
         </div>
         <div class="testimonial-card fade-in">
+          <span class="quote-mark">"</span>
           <p>代々木上原に15年通っています。どの料理も丁寧で、まるでイタリアにいるような気分になれます。</p>
+          <div class="testimonial-line"></div>
           <div class="author">フリーランス / 佐藤様</div>
         </div>
         <div class="testimonial-card fade-in">
+          <span class="quote-mark">"</span>
           <p>接待で利用しましたが、空間の雰囲気と料理のクオリティに取引先も大喜びでした。</p>
+          <div class="testimonial-line"></div>
           <div class="author">〇〇株式会社 / 鈴木様</div>
         </div>
       </div>
@@ -223,7 +235,7 @@
   </section>
 
   <!-- ===== Instagram ===== -->
-  <section class="section section-beige" id="instagram">
+  <section class="section section-white" id="instagram">
     <div class="container">
       <p class="section-title fade-in">Instagram</p>
       <h2 class="section-title-jp fade-in">@trattoria_sole</h2>

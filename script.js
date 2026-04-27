@@ -23,21 +23,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* --- ヘッダー スクロール時の背景変化 --- */
+  /* --- ヘッダー スクロール中は透明・止まったら背景色 --- */
   const header = document.querySelector('.header');
 
   if (header) {
-    const onScroll = () => {
-      // 50px以上スクロールしたら背景を付ける
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    };
+    let scrollTimer = null;
 
-    window.addEventListener('scroll', onScroll);
-    onScroll(); // 初期状態もチェック（ページ途中でリロードした場合）
+    window.addEventListener('scroll', () => {
+      // スクロール中 → 透明にする
+      header.classList.add('scrolling');
+
+      // 前回のタイマーをリセット
+      clearTimeout(scrollTimer);
+
+      // スクロールが止まって150ms後 → 背景色を戻す
+      scrollTimer = setTimeout(() => {
+        header.classList.remove('scrolling');
+      }, 150);
+    });
   }
 
   /* --- スクロールアニメーション（IntersectionObserver） --- */
@@ -57,6 +60,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     fadeElements.forEach(el => observer.observe(el));
+  }
+
+  /* --- パララックス効果（data-parallax="slow"属性の要素） --- */
+  const parallaxEls = document.querySelectorAll('[data-parallax]');
+
+  if (parallaxEls.length > 0 && window.innerWidth > 768) {
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      parallaxEls.forEach(el => {
+        const speed = 0.03; // ゆっくり動くスピード
+        const rect = el.getBoundingClientRect();
+        const offset = (rect.top + scrollY - window.innerHeight / 2) * speed;
+        el.style.transform = `translateY(${offset}px)`;
+      });
+    });
   }
 
   /* --- 予約フォーム バリデーション --- */
